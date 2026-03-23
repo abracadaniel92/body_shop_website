@@ -1,0 +1,148 @@
+/*
+Theme Name: Bodyshop Theme
+Theme URI: https://example.com
+Author: Bodyshop Team
+Description: Custom theme for a body shop website with gallery and blog.
+Version: 1.0.0
+Text Domain: bodyshop-theme
+*/
+
+:root {
+  --bg: #111;
+  --surface: #1b1b1b;
+  --text: #f4f4f4;
+  --muted: #b5b5b5;
+  --accent: #e74c3c;
+  --max-width: 1100px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #fff;
+  color: #1a1a1a;
+  line-height: 1.6;
+}
+
+.site-header {
+  background: var(--bg);
+  color: var(--text);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+
+.nav-wrap,
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.nav-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 70px;
+}
+
+.site-title a {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 1rem;
+}
+
+.menu a {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.hero {
+  background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
+    url("https://images.unsplash.com/photo-1486006920555-c77dcf18193c?auto=format&fit=crop&w=1600&q=80")
+      center/cover no-repeat;
+  color: #fff;
+  min-height: 62vh;
+  display: flex;
+  align-items: center;
+}
+
+.hero h1 {
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  margin: 0 0 0.75rem;
+}
+
+.btn {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  text-decoration: none;
+  padding: 0.7rem 1rem;
+  border-radius: 6px;
+  font-weight: 700;
+}
+
+section {
+  padding: 3.5rem 0;
+}
+
+.section-dark {
+  background: var(--surface);
+  color: var(--text);
+}
+
+.grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+}
+
+.card {
+  border: 1px solid #ececec;
+  border-radius: 10px;
+  padding: 1rem;
+  background: #fff;
+}
+
+.section-dark .card {
+  border-color: #2f2f2f;
+  background: #222;
+}
+
+.gallery-pair {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+.gallery-pair img,
+.post-thumb img {
+  width: 100%;
+  display: block;
+  border-radius: 8px;
+}
+
+.meta {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.site-footer {
+  background: #0d0d0d;
+  color: #d2d2d2;
+  padding: 1.2rem 0;
+  text-align: center;
+}
