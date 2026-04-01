@@ -12,33 +12,41 @@
           Поправка на каросерија, лакирање, деталинг и реставрација со доверлива изработка.
         </p>
         <div class="homeHero__actions">
-          <router-link class="bs-btn homeHero__cta" to="/gallery">
-            Погледни пред/после
-          </router-link>
+          <a class="bs-btn homeHero__cta" href="#services">Наши услуги</a>
           <a class="homeHero__ghost" href="#" @click.prevent="scrollToContact">Контакт</a>
         </div>
       </div>
     </section>
 
-    <!-- Split section ("Why choose ...") -->
-    <section class="homeSection homeSection--dark homeSection--wide" aria-label="Зошто да избереш">
-      <div class="bs-container homeSplit">
-        <div class="homeSplit__media" role="img" aria-label="Преглед на нашата работа">
-          <div class="homeSplit__mediaBg" />
-        </div>
-        <div class="homeSplit__content">
-          <h2 class="homeSection__title homeSection__title--light">Зошто да избереш Дака Драган?</h2>
-          <p class="homeSection__text homeSection__text--light">
-            Основано од љубители на автомобили, Дака Драган е млад тим со фокус на квалитет и посветен процес за секоја нарачка.
-          </p>
-          <p class="homeSection__text homeSection__text--light">
-            Работиме преку целата постапка: подготовка, боја, деталинг и финална контрола—за резултат на кој ќе му се радуваш.
-          </p>
-          <div class="homeSplit__actions">
-            <router-link class="homeHero__ghost homeHero__ghost--light" to="/blog">
-              Прочитај го нашиот блог
-            </router-link>
-          </div>
+    <!-- Why choose us (3 cards only) -->
+    <section class="homeSection homeSection--dark whyChooseSection" aria-label="Зошто да избереш">
+      <div class="bs-container">
+        <h2 class="homeSection__title homeSection__title--light">Зошто да избереш Дака Драган?</h2>
+        <div class="whyChooseCards whyChooseCards--three" aria-label="Причини за избор">
+          <article class="whyChooseCard">
+            <span class="whyChooseCard__icon" aria-hidden="true">✓</span>
+            <h3 class="whyChooseCard__title">Брза проценка</h3>
+            <p class="whyChooseCard__text">
+              Добиваш брза и прецизна проценка со јасен план на чекори, време за изработка и препорака за
+              најдобро решение според состојбата на возилото.
+            </p>
+          </article>
+          <article class="whyChooseCard">
+            <span class="whyChooseCard__icon" aria-hidden="true">✓</span>
+            <h3 class="whyChooseCard__title">Гарантиран квалитет</h3>
+            <p class="whyChooseCard__text">
+              Работиме со проверени материјали и контроли на секој чекор - од подготовка и боја, до финален
+              преглед за да добиеш стабилен и уреден резултат.
+            </p>
+          </article>
+          <article class="whyChooseCard">
+            <span class="whyChooseCard__icon" aria-hidden="true">✓</span>
+            <h3 class="whyChooseCard__title">Транспарентна цена</h3>
+            <p class="whyChooseCard__text">
+              Пред почеток добиваш јасна понуда со објаснети ставки, без скриени трошоци и со редовна
+              комуникација ако има дополнителни работи.
+            </p>
+          </article>
         </div>
       </div>
     </section>
@@ -50,7 +58,8 @@
       </div>
 
       <!-- Service 1: media left -->
-      <div class="bs-container homeSplit" aria-label="Поправка на каросерија">
+      <div class="bs-container serviceBlock" aria-label="Поправка на каросерија">
+        <div class="homeSplit">
         <div class="homeSplit__media" role="img" aria-label="Поправка на каросерија">
           <div class="homeSplit__mediaBg homeSplit__mediaBg--s1" />
         </div>
@@ -60,33 +69,67 @@
             Враќаме форма и изглед: од прецизна поправка до козметичко средување.
           </p>
           <div class="homeSplit__actions">
-            <router-link class="homeHero__ghost homeHero__ghost--light" to="/gallery">
-              Погледни пред/после
-            </router-link>
+            <button class="serviceExamples__toggle" type="button" @click="toggleExamples('repair')">
+              {{ expandedExamples.repair ? 'Сокриј галерија' : 'Види повеќе примери' }}
+            </button>
+            <a class="homeHero__ghost homeHero__ghost--light" href="#" @click.prevent="scrollToContact">
+              Контактирај не
+            </a>
           </div>
+        </div>
+        </div>
+        <div class="serviceGallery" :class="{ 'serviceGallery--open': expandedExamples.repair }">
+          <div class="serviceExample serviceExample--golf" />
+          <div class="serviceExample serviceExample--octavia" />
+          <div class="serviceExample serviceExample--golf" />
+          <div class="serviceExample serviceExample--octavia" />
+          <div class="serviceExample serviceExample--golf" />
+          <div class="serviceExample serviceExample--octavia" />
+          <div class="serviceExample serviceExample--golf" />
+          <div class="serviceExample serviceExample--octavia" />
+          <div class="serviceExample serviceExample--golf" />
+          <div class="serviceExample serviceExample--octavia" />
         </div>
       </div>
 
       <!-- Service 2: media right -->
-      <div class="bs-container homeSplit" aria-label="Боја и реновирање">
+      <div class="bs-container serviceBlock" aria-label="Боја и реновирање">
+        <div class="homeSplit">
         <div class="homeSplit__content">
           <h2 class="homeSection__title">Боја и реновирање</h2>
           <p class="homeSection__text">
             Боење со точна нијанса, внимателна подготовка и траен финиш.
           </p>
           <div class="homeSplit__actions">
-            <router-link class="homeHero__ghost homeHero__ghost--light" to="/gallery">
-              Погледни резултати
-            </router-link>
+            <button class="serviceExamples__toggle" type="button" @click="toggleExamples('paint')">
+              {{ expandedExamples.paint ? 'Сокриј галерија' : 'Види повеќе примери' }}
+            </button>
+            <a class="homeHero__ghost homeHero__ghost--light" href="#" @click.prevent="scrollToContact">
+              Побарај понуда
+            </a>
           </div>
         </div>
         <div class="homeSplit__media" role="img" aria-label="Боја и реновирање">
           <div class="homeSplit__mediaBg homeSplit__mediaBg--s2" />
         </div>
+        </div>
+        <div class="serviceGallery" :class="{ 'serviceGallery--open': expandedExamples.paint }">
+          <div class="serviceExample serviceExample--octavia" />
+          <div class="serviceExample serviceExample--golf" />
+          <div class="serviceExample serviceExample--octavia" />
+          <div class="serviceExample serviceExample--golf" />
+          <div class="serviceExample serviceExample--octavia" />
+          <div class="serviceExample serviceExample--golf" />
+          <div class="serviceExample serviceExample--octavia" />
+          <div class="serviceExample serviceExample--golf" />
+          <div class="serviceExample serviceExample--octavia" />
+          <div class="serviceExample serviceExample--golf" />
+        </div>
       </div>
 
       <!-- Service 3: media left -->
-      <div class="bs-container homeSplit" aria-label="Деталинг">
+      <div class="bs-container serviceBlock" aria-label="Деталинг">
+        <div class="homeSplit">
         <div class="homeSplit__media" role="img" aria-label="Деталинг">
           <div class="homeSplit__mediaBg homeSplit__mediaBg--s3" />
         </div>
@@ -96,10 +139,26 @@
             Чистење и средување на внатрешноста и надворешноста за „како нов“ изглед.
           </p>
           <div class="homeSplit__actions">
-            <router-link class="homeHero__ghost homeHero__ghost--light" to="/blog">
-              Прочитај повеќе
-            </router-link>
+            <button class="serviceExamples__toggle" type="button" @click="toggleExamples('detailing')">
+              {{ expandedExamples.detailing ? 'Сокриј галерија' : 'Види повеќе примери' }}
+            </button>
+            <a class="homeHero__ghost homeHero__ghost--light" href="#" @click.prevent="scrollToContact">
+              Закажи термин
+            </a>
           </div>
+        </div>
+        </div>
+        <div class="serviceGallery" :class="{ 'serviceGallery--open': expandedExamples.detailing }">
+          <div class="serviceExample serviceExample--golf" />
+          <div class="serviceExample serviceExample--octavia" />
+          <div class="serviceExample serviceExample--golf" />
+          <div class="serviceExample serviceExample--octavia" />
+          <div class="serviceExample serviceExample--golf" />
+          <div class="serviceExample serviceExample--octavia" />
+          <div class="serviceExample serviceExample--golf" />
+          <div class="serviceExample serviceExample--octavia" />
+          <div class="serviceExample serviceExample--golf" />
+          <div class="serviceExample serviceExample--octavia" />
         </div>
       </div>
     </section>
@@ -130,23 +189,35 @@
         <div class="homeContactCompact__text">
           <h2 class="homeSection__title homeSection__title--light">Контакт</h2>
           <p class="homeSection__text homeSection__text--light homeContactCompact__info">
-            Тел: +389 70 000 000<br />
-            Е-пошта: info@dakadragan.mk<br />
+            Тел: +389 78306981<br />
+            Е-пошта: contact@daka-dragan.mk<br />
             Локација: Скопје
+          </p>
+          <div class="homeContactCompact__socials" aria-label="Социјални мрежи">
+            <a class="bs-social-btn bs-social-btn--facebook" href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+              Facebook
+            </a>
+            <a class="bs-social-btn bs-social-btn--instagram" href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+              Instagram
+            </a>
+          </div>
+          <p class="homeContactCompact__jobs">
+            Бараш работа? Испрати ни CV на
+            <a class="bs-footer-link" href="mailto:contact@daka-dragan.mk">contact@daka-dragan.mk</a>
           </p>
         </div>
 
         <div class="homeContactCompact__mapWrap">
           <iframe
             class="homeContactCompact__map"
-            src="https://www.google.com/maps?q=41.958434,21.521560&z=17&output=embed"
+            src="https://www.google.com/maps?q=41.9579548,21.5260566&z=17&output=embed"
             title="Google Maps location"
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
           />
           <a
             class="homeContactCompact__mapLink"
-            href="https://maps.app.goo.gl/185GGsCDFxyaJCSw7"
+            href="https://maps.app.goo.gl/HXhQvtusa8jPHecW8"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -161,8 +232,19 @@
 </template>
 
 <script setup>
+import { ref } from 'vue'
 import SiteHeader from '../components/SiteHeader.vue'
 import SiteFooter from '../components/SiteFooter.vue'
+
+const expandedExamples = ref({
+  repair: false,
+  paint: false,
+  detailing: false
+})
+
+function toggleExamples(section) {
+  expandedExamples.value[section] = !expandedExamples.value[section]
+}
 
 function scrollToContact() {
   const el = document.getElementById('contact')

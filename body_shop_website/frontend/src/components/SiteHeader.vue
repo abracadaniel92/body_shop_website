@@ -9,8 +9,7 @@
 
       <nav class="bs-nav">
         <router-link class="bs-nav-link" to="/">Почетна</router-link>
-        <router-link class="bs-nav-link" to="/gallery">Галерија</router-link>
-        <router-link class="bs-nav-link" to="/blog">Блог</router-link>
+        <a class="bs-nav-link" href="#" @click.prevent="goToSection('services')">Услуги</a>
         <a class="bs-nav-link" href="#" @click.prevent="goToSection('about')">За нас</a>
         <a class="bs-nav-link" href="#" @click.prevent="goToSection('contact')">Контакт</a>
       </nav>
