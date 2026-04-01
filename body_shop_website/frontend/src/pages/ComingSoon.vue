@@ -1,7 +1,6 @@
 <template>
   <main class="comingSoon">
     <div class="comingSoon__card">
-      <img class="comingSoon__logo" src="/logo.png" alt="Дака Драган" />
       <h1 class="comingSoon__title">Наскоро</h1>
       <p class="comingSoon__text">
         Работиме на новата веб страница. Закажување и информации наскоро.
@@ -26,13 +25,6 @@
   background: rgba(255, 255, 255, 0.03);
   padding: 30px 22px;
   text-align: center;
-}
-
-.comingSoon__logo {
-  max-width: 220px;
-  width: 100%;
-  height: auto;
-  margin-bottom: 16px;
 }
 
 .comingSoon__title {
