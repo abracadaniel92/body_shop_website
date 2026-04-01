@@ -21,7 +21,7 @@
     <!-- Why choose us (3 cards only) -->
     <section class="homeSection homeSection--dark whyChooseSection" aria-label="Зошто да избереш">
       <div class="bs-container">
-        <h2 class="homeSection__title homeSection__title--light">Зошто да избереш Дака Драган?</h2>
+        <h2 class="homeSection__title homeSection__title--light">Зошто да не избереш нас</h2>
         <div class="whyChooseCards whyChooseCards--three" aria-label="Причини за избор">
           <article class="whyChooseCard">
             <span class="whyChooseCard__icon" aria-hidden="true">✓</span>
