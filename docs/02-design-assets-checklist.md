@@ -1,14 +1,14 @@
-# Design and Content Intake Checklist
+# Design and content intake checklist
 
 Use this checklist before final visual polish and launch.
 
 ## Brand assets
 
 - Primary logo (SVG/PNG with transparent background)
-- Secondary/stacked logo variant
+- Secondary/stacked logo variant if needed
 - Brand color palette (hex values)
 - Font families and fallbacks
-- Favicon (32x32, 180x180)
+- Favicon (32×32, 180×180)
 
 ## Homepage content
 
@@ -18,23 +18,10 @@ Use this checklist before final visual polish and launch.
 - Contact details (phone, email, address, hours)
 - Social links
 
-## Gallery content
+## Section imagery
 
-- Before image for each job
-- After image for each job
-- Job title
-- Optional short description
-- Optional vehicle make/model and service type
+- Hero / service imagery (export WebP where possible for `frontend/public/`)
 
-## Blog content
+## Optional extras
 
-- Initial 3-5 posts
-- Featured image for each post
-- Category and tag structure
-- Author display name
-
-## Legal and SEO inputs
-
-- Privacy policy text
-- Service area/location targets
-- Home, gallery, and blog meta descriptions
+- Before/after imagery for service examples (used in sliders if present)

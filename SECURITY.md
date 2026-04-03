@@ -1,6 +1,6 @@
 # Security policy
 
-This document describes how we handle security for the **Дака Драган** body shop website project (Vue 3 + Vite frontend, with optional WordPress-related tooling in this repository).
+This document describes how we handle security for the **Дака Драган** static website (Vue 3 + Vite, deployed as static files).
 
 ## Supported versions
 
@@ -14,20 +14,15 @@ This document describes how we handle security for the **Дака Драган**
 
 We reduce risk from third-party packages by:
 
-- Running **`npm audit`** before releases and when upgrading tooling.
-- Using **`npm audit fix`** (and, when needed, targeted version bumps) in:
-  - `frontend/` — Vue app and Vite build chain.
-  - `wordpress/wp-content/themes/twentytwentyfive/` — only if you install that theme’s npm dev dependencies for local builds.
+- Running **`npm audit`** in `frontend/` before releases and when upgrading tooling.
+- Using **`npm audit fix`** (and, when needed, targeted version bumps) for the Vite/Vue toolchain.
 - Reviewing **GitHub Dependabot** alerts on the default branch and applying updates via pull requests.
 
 Verify locally after pulling latest:
 
 ```bash
 cd frontend && npm audit
-cd ../wordpress/wp-content/themes/twentytwentyfive && npm audit
 ```
-
-A clean report depends on current advisories; re-run after dependency changes.
 
 ## Reporting a vulnerability
 
