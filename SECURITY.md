@@ -34,7 +34,7 @@ A clean report depends on current advisories; re-run after dependency changes.
 **Please do not** use public issues to report undisclosed security problems.
 
 1. **Preferred:** On GitHub, open the repository → **Security** → **Report a vulnerability** (if enabled).
-2. **Email:** [contact@daka-dragan.mk](mailto:contact@daka-dragan.mk) with a subject line starting with `[SECURITY]`.
+2. **Email:** [contact@gmojsoski.com](mailto:contact@gmojsoski.com) with a subject line starting with `[SECURITY]`.
 
 Include enough detail to reproduce or assess impact (affected URL or component, steps, and, if applicable, proof-of-concept). We aim to send an initial response within **5 business days**, then work with you on severity, fix timeline, and coordinated disclosure where appropriate.
 
