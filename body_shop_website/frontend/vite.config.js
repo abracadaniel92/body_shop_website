@@ -3,14 +3,5 @@ import vue from '@vitejs/plugin-vue'
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [vue()],
-  server: {
-    proxy: {
-      // Avoid browser CORS issues by proxying WordPress REST API through Vite.
-      '/wp-json': {
-        target: 'http://localhost:8080',
-        changeOrigin: true
-      }
-    }
-  }
+  plugins: [vue()]
 })
