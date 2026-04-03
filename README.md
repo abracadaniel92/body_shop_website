@@ -1,6 +1,6 @@
 # Body Shop Website Starter
 
-This folder contains a WordPress-first implementation designed for a non-technical site owner.
+This repository contains a WordPress-first implementation (Docker) and a **Vue 3 + Vite** frontend in `frontend/` used for the marketing site deploy (e.g. Netlify).
 
 ## What is included
 
@@ -21,6 +21,7 @@ This folder contains a WordPress-first implementation designed for a non-technic
 
 ## Project structure
 
+- `frontend/` - Vue 3 + Vite app (production build published by Netlify)
 - `docker-compose.yml` - WordPress + MySQL local stack
 - `wordpress/wp-content/themes/bodyshop-theme` - custom theme
 - `docs/01-platform-decision.md` - platform confirmation
