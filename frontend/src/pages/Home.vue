@@ -6,7 +6,7 @@
     <section class="homeHero">
       <div class="homeHero__overlay" />
       <div class="bs-container homeHero__inner">
-        <p class="homeHero__kicker">Дака Драган • Автолимарија и автолакер</p>
+        <p class="homeHero__kicker">Дака Драган • Автолимарија и автолакирање</p>
         <h1 class="homeHero__title">Твоето возило во најдобри раце</h1>
         <p class="homeHero__subtitle">
           Лимарија, фарбање, полирање и комплетна реставрација — професионална изработка со гаранција за квалитет.
@@ -101,11 +101,7 @@
         </div>
         </div>
         <div class="serviceGallery" :class="{ 'serviceGallery--open': expandedExamples.repair }">
-          <BeforeAfterSlider
-            before="/cars/golf.webp"
-            after="/cars/octavia.webp"
-            @image-click="openLightbox"
-          />
+          <ul class="serviceGallery__emptyList" aria-label="Листа на примери за лимарија" />
         </div>
       </div>
 
@@ -130,11 +126,7 @@
         </div>
         </div>
         <div class="serviceGallery" :class="{ 'serviceGallery--open': expandedExamples.paint }">
-          <BeforeAfterSlider
-            before="/cars/octavia.webp"
-            after="/cars/golf.webp"
-            @image-click="openLightbox"
-          />
+          <ul class="serviceGallery__emptyList" aria-label="Листа на примери за фарбање" />
         </div>
       </div>
 
@@ -145,8 +137,8 @@
           <div class="homeSplit__mediaBg homeSplit__mediaBg--s3" />
         </div>
         <div class="homeSplit__content">
-          <h2 class=”homeSection__title”>Полирање и деталинг</h2>
-          <p class=”homeSection__text”>
+          <h2 class="homeSection__title">Полирање и деталинг</h2>
+          <p class="homeSection__text">
             Машинско полирање, заштита на лак, длабинско чистење на ентериер и екстериер.
             Возилото го враќаме во салонска состојба.
           </p>
@@ -159,11 +151,7 @@
         </div>
         </div>
         <div class="serviceGallery" :class="{ 'serviceGallery--open': expandedExamples.detailing }">
-          <BeforeAfterSlider
-            before="/cars/golf.webp"
-            after="/cars/octavia.webp"
-            @image-click="openLightbox"
-          />
+          <ul class="serviceGallery__emptyList" aria-label="Листа на примери за полирање" />
         </div>
       </div>
     </section>
@@ -188,6 +176,10 @@
       </div>
     </section>
 
+    <!--
+      <RepairGalleryStrip :images="repairGalleryImages" />
+    -->
+
     <!-- Compact contact -->
     <section class="homeSection homeSection--dark homeContactCompact reveal" :ref="addRevealRef" id="contact" aria-label="Контакт">
       <div class="bs-container homeContactCompact__inner">
@@ -199,11 +191,11 @@
             Локација: Скопје
           </p>
           <div class="homeContactCompact__socials" aria-label="Социјални мрежи">
-            <a class="bs-social-btn bs-social-btn--facebook" href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+            <a class="bs-social-btn bs-social-btn--facebook" href="https://www.facebook.com/daka.dragan" target="_blank" rel="noopener noreferrer">
               <svg class="bs-social-btn__icon" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" fill="currentColor" stroke="none"/></svg>
               Facebook
             </a>
-            <a class="bs-social-btn bs-social-btn--instagram" href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+            <a class="bs-social-btn bs-social-btn--instagram" href="https://www.instagram.com/daka.dragan/" target="_blank" rel="noopener noreferrer">
               <svg class="bs-social-btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><path d="M17.5 6.5h.01"/></svg>
               Instagram
             </a>
@@ -235,13 +227,6 @@
       </div>
     </section>
 
-    <ImageLightbox
-      :visible="lightbox.visible"
-      :images="lightbox.images"
-      :start-index="lightbox.index"
-      @close="closeLightbox"
-    />
-
     <Transition name="btt">
       <button
         v-show="showBackToTop"
@@ -262,8 +247,10 @@
 import { ref, onMounted, onUnmounted } from 'vue'
 import SiteHeader from '../components/SiteHeader.vue'
 import SiteFooter from '../components/SiteFooter.vue'
-import BeforeAfterSlider from '../components/BeforeAfterSlider.vue'
-import ImageLightbox from '../components/ImageLightbox.vue'
+// import RepairGalleryStrip from '../components/RepairGalleryStrip.vue'
+
+/** Thumbnails for the strip below About — add imports from ../../images/repair-gallery/ and list them here. */
+// const repairGalleryImages = [/* add future gallery images here */]
 
 const expandedExamples = ref({
   repair: false,
@@ -292,28 +279,10 @@ function handleScroll() {
   showBackToTop.value = window.scrollY > 600
 }
 
-/* ── Lightbox ── */
-const lightbox = ref({ visible: false, images: [], index: 0 })
-
-const allGalleryImages = ['/cars/golf.webp', '/cars/octavia.webp']
-
-function openLightbox(src) {
-  const idx = allGalleryImages.indexOf(src)
-  lightbox.value = {
-    visible: true,
-    images: allGalleryImages,
-    index: idx >= 0 ? idx : 0
-  }
-}
-
-function closeLightbox() {
-  lightbox.value.visible = false
-}
-
 /* ── Stats data ── */
 const stats = [
-  { value: 15, suffix: '+', label: 'Години искуство' },
-  { value: 3200, suffix: '+', label: 'Поправени возила' },
+  { value: 50, suffix: '+', label: 'Години искуство' },
+  { value: 10000, suffix: '+', label: 'Поправени возила' },
   { value: 98, suffix: '%', label: 'Задоволни клиенти' },
   { value: 5, suffix: '★', label: 'Google оценка' }
 ]
@@ -322,6 +291,10 @@ const statNumbers = ref([])
 let statsObserver = null
 let statsCounted = false
 
+function formatStatDigits(n) {
+  return String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, '.')
+}
+
 function countUp(el, target, duration = 1600) {
   const start = performance.now()
   const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3)
@@ -329,7 +302,7 @@ function countUp(el, target, duration = 1600) {
   function tick(now) {
     const progress = Math.min((now - start) / duration, 1)
     const value = Math.round(easeOutCubic(progress) * target)
-    el.textContent = value
+    el.textContent = formatStatDigits(value)
     if (progress < 1) requestAnimationFrame(tick)
   }
   requestAnimationFrame(tick)

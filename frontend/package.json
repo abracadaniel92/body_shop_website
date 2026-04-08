@@ -5,9 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "prebuild": "node scripts/sync-public-assets.mjs",
     "build": "vite build",
     "preview": "vite preview",
-    "convert-images": "node scripts/convert-to-webp.mjs"
+    "convert-images": "node scripts/convert-to-webp.mjs",
+    "sync-public-assets": "node scripts/sync-public-assets.mjs"
   },
   "dependencies": {
     "vue": "^3.5.30",

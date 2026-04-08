@@ -310,6 +310,29 @@ code {
   padding: 0 16px;
 }
 
+/* Wide screens: default 1100px leaves large side gutters; expand content width only from ~desktop-xl up. */
+@media (min-width: 1200px) {
+  .bs-container {
+    max-width: 1240px;
+    padding-left: 28px;
+    padding-right: 28px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .bs-container {
+    max-width: 1380px;
+    padding-left: 36px;
+    padding-right: 36px;
+  }
+}
+
+@media (min-width: 1680px) {
+  .bs-container {
+    max-width: 1520px;
+  }
+}
+
 .bs-header {
   position: sticky;
   top: 0;
@@ -596,7 +619,7 @@ code {
   display: flex;
   align-items: center;
   background: linear-gradient(rgba(0, 0, 0, 0.62), rgba(0, 0, 0, 0.62)),
-    url('/cars/golf.webp') center bottom / cover no-repeat;
+    url('../images/hero/IMG_1477.webp') center bottom / cover no-repeat;
 }
 
 .homeHero__overlay {
@@ -727,7 +750,7 @@ code {
 }
 
 .homeSplit__media:hover .homeSplit__mediaBg {
-  transform: scale(1.05);
+  transform: scale(1.02);
   filter: saturate(1.1) brightness(1.08);
 }
 
@@ -825,11 +848,11 @@ code {
 }
 
 .serviceExample--golf {
-  background-image: url('/cars/golf.webp');
+  background-image: url('../images/cars/Golf.webp');
 }
 
 .serviceExample--octavia {
-  background-image: url('/cars/octavia.webp');
+  background-image: url('../images/cars/Octavia.webp');
 }
 
 .serviceGallery {
@@ -844,6 +867,23 @@ code {
   margin-top: 14px;
   max-height: 700px;
   opacity: 1;
+}
+
+.serviceGallery__emptyList {
+  list-style: none;
+  margin: 0;
+  padding: 14px 16px;
+  min-height: 64px;
+  border: 1px dashed rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.serviceGallery__emptyList::before {
+  content: 'Нема додадени примери.';
+  display: block;
+  color: rgba(245, 245, 247, 0.78);
+  font-size: 0.9rem;
 }
 
 .serviceExamples__toggle {
@@ -1060,20 +1100,32 @@ body {
   min-height: 100vh !important;
 }
 
-/* Featured services media images (overrides). */
+/* Featured services media: landscape frame + cover (tall min-heights were cropping landscape shots). */
 .homeSplit__mediaBg--s1 {
-  background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.7)),
-    url('/cars/golf.webp') center/cover no-repeat;
+  background-color: #111318;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.7)),
+    url("../images/Limarija/bmw.webp");
+  background-repeat: no-repeat;
+  background-position: center, center 42%;
+  background-size: cover, cover;
 }
 
 .homeSplit__mediaBg--s2 {
-  background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.7)),
-    url('/cars/octavia.webp') center/cover no-repeat;
+  background-color: #111318;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.7)),
+    url("../images/lakiranje/mercedes.webp");
+  background-repeat: no-repeat;
+  background-position: center, center 48%;
+  background-size: cover, cover;
 }
 
 .homeSplit__mediaBg--s3 {
-  background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.7)),
-    url('/cars/golf.webp') center/cover no-repeat;
+  background-color: #111318;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.7)),
+    url("../images/poliranje/volvo.webp");
+  background-repeat: no-repeat;
+  background-position: center, center 45%;
+  background-size: cover, cover;
 }
 
 /* Compact contact section. */
@@ -1094,13 +1146,18 @@ body {
 
 .homeContactCompact__inner {
   display: flex;
-  justify-content: space-between;
-  gap: 12px;
-  align-items: flex-start;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 24px;
 }
 
 .homeContactCompact__text {
+  flex: 1 1 48%;
+  min-width: 0;
   max-width: 56ch;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 .homeContactCompact__socials {
@@ -1108,6 +1165,17 @@ body {
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
+}
+
+@media (min-width: 981px) {
+  .homeContactCompact__socials {
+    max-width: 340px;
+  }
+
+  .homeContactCompact__socials .bs-social-btn {
+    flex: 1 1 0;
+    min-width: 0;
+  }
 }
 
 .homeContactCompact__jobs {
@@ -1125,9 +1193,13 @@ body {
 }
 
 .homeContactCompact__mapWrap {
-  width: min(460px, 100%);
   position: relative;
-  display: block;
+  flex: 1 1 52%;
+  min-width: 0;
+  max-width: min(520px, 100%);
+  display: flex;
+  flex-direction: column;
+  align-self: stretch;
   border-radius: 12px;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.18);
@@ -1141,8 +1213,10 @@ body {
 }
 
 .homeContactCompact__map {
+  flex: 1 1 auto;
   width: 100%;
-  height: 180px;
+  min-height: 188px;
+  height: 100%;
   display: block;
   border: none;
   pointer-events: none;
@@ -1190,17 +1264,106 @@ body {
   border-radius: 12px;
 }
 
+@media (min-width: 1200px) {
+  .homeContactCompact__inner {
+    gap: 40px;
+  }
+
+  .homeContactCompact__text {
+    max-width: none;
+    flex: 1 1 46%;
+  }
+
+  .homeContactCompact__mapWrap {
+    flex: 1 1 52%;
+    max-width: none;
+  }
+
+  .homeContactCompact__map {
+    min-height: 240px;
+  }
+
+  .homeAbout__grid {
+    gap: 40px;
+  }
+
+  .whyChooseCards--three {
+    gap: 28px;
+  }
+
+  .whyChooseCard {
+    padding: 28px 26px;
+  }
+
+  .statsStrip__inner {
+    gap: 28px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .homeContactCompact__inner {
+    gap: 52px;
+  }
+
+  .homeContactCompact__map {
+    min-height: 268px;
+  }
+
+  .whyChooseCards--three {
+    gap: 34px;
+  }
+}
+
 @media (max-width: 980px) {
   .homeContactCompact__inner {
     flex-direction: column;
+    align-items: center;
   }
 
   .homeContactCompact .homeSection__title {
     text-align: center;
   }
 
+  .homeContactCompact__text {
+    max-width: none;
+    width: 100%;
+    text-align: center;
+  }
+
+  .homeContactCompact__info {
+    text-align: center;
+  }
+
+  .homeContactCompact__jobs {
+    text-align: center;
+  }
+
+  .homeContactCompact__socials {
+    justify-content: center;
+    flex-wrap: nowrap;
+    gap: 8px;
+    width: 100%;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .homeContactCompact .bs-social-btn {
+    min-width: 0;
+    flex: 1 1 0;
+    padding: 9px 10px;
+    font-size: 0.82rem;
+    gap: 6px;
+  }
+
+  .homeContactCompact .bs-social-btn__icon {
+    width: 17px;
+    height: 17px;
+  }
+
   .homeContactCompact__mapWrap {
     width: 100%;
+    max-width: 460px;
   }
 
   .homeContactCompact__map {
@@ -1547,17 +1710,54 @@ body {
 }
 
 .homeSection--edge .homeSplit {
-  border-top: 1px solid #1e2230;
+  border-top: none;
   margin: 0;
+  align-items: center;
+  /* Equal columns so "media right" rows still get a full half-width image column. */
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
 }
 
-.homeSection--edge .homeSplit__media,
-.homeSection--edge .homeSplit__content {
-  min-height: 440px;
+/* Separate each service from the next — was one fused strip of the same dark tone. */
+.homeSection--edge .serviceBlock {
+  margin-bottom: 22px;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.04) inset,
+    0 14px 44px rgba(0, 0, 0, 0.55);
+}
+
+.homeSection--edge .serviceBlock:last-child {
+  margin-bottom: 0;
+}
+
+.homeSection--edge .serviceBlock .serviceGallery {
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Slight tint shifts so alternating rows read as different blocks (same section, clearer rhythm). */
+.homeSection--edge > .bs-container.serviceBlock:nth-child(2) .homeSplit__content {
+  background: #0a0f18;
+}
+
+.homeSection--edge > .bs-container.serviceBlock:nth-child(3) .homeSplit__content {
+  background: #0d121c;
+}
+
+.homeSection--edge > .bs-container.serviceBlock:nth-child(4) .homeSplit__content {
+  background: #080c14;
+}
+
+/* Landscape image area: avoids portrait-shaped crop from old min-height: 440px rows. */
+.homeSection--edge .homeSplit__media {
+  min-height: 0;
+  aspect-ratio: 16 / 9;
+  width: 100%;
 }
 
 .homeSection--edge .homeSplit__content {
-  background: #090d17;
+  min-height: 0;
 }
 
 .homeSection--edge .homeSplit__actions .homeHero__ghost--light {
@@ -1578,9 +1778,9 @@ body {
 
 .homeAbout__grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 24px;
-  align-items: stretch;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+  gap: 28px;
+  align-items: center;
 }
 
 .homeAbout__content {
@@ -1591,30 +1791,77 @@ body {
 }
 
 .homeAbout__media {
-  min-height: 320px;
+  position: relative;
+  min-height: 0;
+  aspect-ratio: 16 / 9;
+  width: 100%;
   overflow: hidden;
   border: 1px solid #232a3a;
 }
 
 .homeAbout__placeholder {
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(rgba(8, 12, 20, 0.24), rgba(8, 12, 20, 0.32)),
-    url('/cars/octavia.webp') center/cover no-repeat;
+  position: absolute;
+  inset: 0;
+  background-color: #0a0f1a;
+  background-image: linear-gradient(rgba(8, 12, 20, 0.24), rgba(8, 12, 20, 0.32)),
+    url("../images/about/IMG_1485.webp");
+  background-repeat: no-repeat;
+  background-position: center, center 38%;
+  background-size: cover, cover;
 }
 
 @media (max-width: 980px) {
-  .homeSection--edge {
-    padding-top: 16px;
+  #services {
+    scroll-margin-top: 76px;
   }
 
+  .homeSection--edge {
+    padding-top: 22px;
+  }
+
+  .homeSection--edge .serviceBlock {
+    margin-bottom: 14px;
+    border-radius: 12px;
+  }
+
+  /* Edge split uses 2 columns on desktop; must override here or phones stay cramped side-by-side. */
   .homeSection--edge .homeSplit {
+    grid-template-columns: 1fr;
+    align-items: stretch;
     gap: 0;
   }
 
-  .homeSection--edge .homeSplit__media,
+  .homeSection--edge .homeSection__headingWrap {
+    padding-top: 6px;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .homeSection--edge .homeSection__headingWrap .homeSection__title {
+    font-size: clamp(1.35rem, 4.8vw, 1.75rem);
+    line-height: 1.15;
+    margin-bottom: 14px;
+  }
+
+  .homeSection--edge .homeSplit__content .homeSection__title {
+    font-size: 1.35rem;
+    line-height: 1.2;
+    letter-spacing: 0.05em;
+    margin-bottom: 10px;
+  }
+
+  .homeSection--edge .homeSplit__content .homeSection__text {
+    font-size: 0.95rem;
+    line-height: 1.65;
+  }
+
   .homeSection--edge .homeSplit__content {
-    min-height: 280px;
+    padding: 18px 16px 22px;
+  }
+
+  .homeSection--edge .homeSplit__media {
+    max-height: none;
+    width: 100%;
   }
 
   .homeAbout {
@@ -1626,7 +1873,8 @@ body {
   }
 
   .homeAbout__media {
-    min-height: 240px;
+    min-height: 0;
+    max-height: none;
   }
 }
 

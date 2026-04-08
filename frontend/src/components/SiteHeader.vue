@@ -3,7 +3,7 @@
     <div class="bs-container bs-header-inner">
       <div class="bs-logo">
         <router-link class="bs-logo-link" to="/">
-          <img class="bs-logo-img" :src="isScrolled ? '/logo2.webp' : '/logo.webp'" alt="Дака Драган" />
+          <img class="bs-logo-img" :src="isScrolled ? logoScrolled : logoDefault" alt="Дака Драган" />
         </router-link>
       </div>
 
@@ -36,6 +36,8 @@
 <script setup>
 import { nextTick, onMounted, onUnmounted, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
+import logoDefault from '../../images/logos/logo.png'
+import logoScrolled from '../../images/logos/logo2.png'
 
 const isScrolled = ref(false)
 const menuOpen = ref(false)
