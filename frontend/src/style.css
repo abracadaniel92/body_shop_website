@@ -1435,18 +1435,18 @@ body {
   font-size: 0.8rem;
 }
 
-.bs-nav .router-link-exact-active {
+.bs-nav-link:hover {
+  color: #ff4d2d;
+}
+
+.bs-nav-link.is-active {
   background: rgba(255, 255, 255, 0.07);
   color: #ff8a6a;
 }
 
-.bs-header.is-scrolled .bs-nav .router-link-exact-active {
+.bs-header.is-scrolled .bs-nav-link.is-active {
   background: #ececef;
   color: #171a20;
-}
-
-.bs-nav-link:hover {
-  color: #ff4d2d;
 }
 
 /* Hamburger menu */
@@ -1537,14 +1537,14 @@ body {
     color: #f5f5f7 !important;
   }
 
-  .bs-nav .router-link-exact-active {
-    background: #ececef;
-    color: #171a20 !important;
-  }
-
   .bs-nav-link:hover {
     color: #ff5a2f !important;
     background: rgba(255, 90, 47, 0.08);
+  }
+
+  .bs-nav-link.is-active {
+    background: #ececef;
+    color: #171a20 !important;
   }
 
   .bs-nav-backdrop {
