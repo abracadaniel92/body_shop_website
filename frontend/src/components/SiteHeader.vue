@@ -24,7 +24,7 @@
       </Transition>
 
       <nav class="bs-nav" :class="{ 'is-open': menuOpen }">
-        <router-link class="bs-nav-link" to="/" @click="menuOpen = false">Почетна</router-link>
+        <a class="bs-nav-link" href="#" @click.prevent="goHome">Почетна</a>
         <a class="bs-nav-link" href="#" @click.prevent="goToSection('services')">Услуги</a>
         <a class="bs-nav-link" href="#" @click.prevent="goToSection('about')">За нас</a>
         <a class="bs-nav-link" href="#" @click.prevent="goToSection('contact')">Контакт</a>
@@ -63,6 +63,15 @@ async function goToSection(sectionId) {
     return
   }
   scrollToSection(sectionId)
+}
+
+async function goHome() {
+  menuOpen.value = false
+  if (route.path !== '/') {
+    await router.push('/')
+    return
+  }
+  window.scrollTo({ top: 0, behavior: 'smooth' })
 }
 
 onMounted(() => {
