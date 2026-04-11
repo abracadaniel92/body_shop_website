@@ -1,0 +1,22 @@
+{
+  "name": "centar-srbija-stil-site",
+  "version": "1.0.0",
+  "description": "CENTAR SRBIJA STIL — marketing site (Vue + Vite)",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "optimize-images": "node scripts/generate-webp.mjs",
+    "compress-webp": "node scripts/optimize-webp.mjs"
+  },
+  "dependencies": {
+    "vue": "^3.4.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.0.0",
+    "sharp": "^0.33.5",
+    "vite": "^8.0.8"
+  }
+}
+
