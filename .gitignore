@@ -1,0 +1,10 @@
+/.env
+/body_shop_website/.env
+/body_shop_website/wordpress/wp-content/uploads/
+/body_shop_website/frontend/node_modules/
+/body_shop_website/frontend/dist/
+node_modules/
+dist/
+
+.github_credentials
+.idea/
