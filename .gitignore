@@ -1,13 +1,9 @@
 /.env
-/body_shop_website/.env
-/body_shop_website/wordpress/wp-content/uploads/
-/body_shop_website/frontend/node_modules/
-/body_shop_website/frontend/dist/
+/wordpress/wp-content/uploads/
+frontend/node_modules/
+frontend/dist/
 node_modules/
 dist/
 
 .github_credentials
 .idea/
-
-# Centar Srbija Stil — separate repo (https://github.com/abracadaniel92/centar-srbija-stil)
-css/
